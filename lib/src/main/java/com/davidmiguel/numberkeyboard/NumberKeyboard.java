@@ -1,6 +1,7 @@
 package com.davidmiguel.numberkeyboard;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.support.annotation.AttrRes;
@@ -15,9 +16,7 @@ import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,8 +145,8 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
-        leftAuxBtn.setTextSize(TypeValue.COMPLEX_UNIT_PX, size);
-        rightAuxBtn.setTextSize(TypeValue.COMPLEX_UNIT_PX, size);
+        leftAuxBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        rightAuxBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
     }
 
     /**
