@@ -25,10 +25,12 @@
         <attr name="numberKeyBackground" format="reference"/>
         <attr name="numberKeyTextSize" format="dimension"/>
         <attr name="numberKeyTextColor" format="reference"/>
-        <attr name="leftAuxBtnIcon" format="reference"/>
         <attr name="leftAuxBtnBackground" format="reference"/>
-        <attr name="rightAuxBtnIcon" format="reference"/>
+        <attr name="leftAuxBtnTextSize" format="dimension"/>
+        <attr name="leftAuxBtnTextColor" format="reference"/>
         <attr name="rightAuxBtnBackground" format="reference"/>
+        <attr name="rightAuxBtnTextSize" format="dimension"/>
+        <attr name="rightAuxBtnTextColor" format="reference"/>
     </declare-styleable>
 
 </resources>

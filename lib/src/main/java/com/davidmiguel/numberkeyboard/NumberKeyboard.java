@@ -45,6 +45,20 @@ public class NumberKeyboard extends GridLayout {
     @ColorRes
     private int numberKeyTextColor;
 
+    @DrawableRes
+    private int leftAuxBtnBackground;
+    @Dimension
+    private int leftAuxBtnTextSize;
+    @ColorRes
+    private int leftAuxBtnTextColor;
+
+    @DrawableRes
+    private int rightAuxBtnBackground;
+    @Dimension
+    private int rightAuxBtnTextSize;
+    @ColorRes
+    private int rightAuxBtnTextColor;
+
     private List<TextView> numericKeys;
     private TextView leftAuxBtn;
     private TextView rightAuxBtn;
@@ -134,7 +148,19 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setBackground(ContextCompat.getDrawable(getContext(), background));
         }
+    }
+
+    /**
+    * Sets left auxiliary button background.
+    */
+    public void setLeftAuxButtonBackground(@DrawableRes int background) {
         leftAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), background));
+    }
+
+    /**
+     * Sets right auxiliary button background.
+     */
+    public void setRightAuxButtonBackground(@DrawableRes int background) {
         rightAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), background));
     }
 
@@ -145,7 +171,19 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
+    }
+    
+    /**
+     * Sets left auxiliary key text size.
+     */
+    public void setLeftAuxButtonTextSize(@Dimension int size) {
         leftAuxBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+    }
+
+    /**
+     * Sets right auxiliary key text size.
+     */
+    public void setRightAuxButtonTextSize(@Dimension int size) {
         rightAuxBtn.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
     }
 
@@ -156,7 +194,19 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTextColor(ContextCompat.getColorStateList(getContext(), color));
         }
+    }
+
+    /**
+     * Sets left auxiliary key text color
+     */
+    public void setLeftAuxButtonTextColor(@ColorRes int color) {
         leftAuxBtn.setTextColor(ContextCompat.getColorStateList(getContext(), color));
+    }
+
+    /**
+     * Sets right auxiliary key text color
+     */
+    public void setRightAuxButtonTextColor(@ColorRes int color) {
         rightAuxBtn.setTextColor(ContextCompat.getColorStateList(getContext(), color));
     }
 
@@ -167,7 +217,19 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTypeface(typeface);
         }
+    }
+
+    /**
+     * Sets left auxiliary key text typeface
+     */
+    public void setLeftAuxButtonTextColor(Typeface typeface) {
         leftAuxBtn.setTypeface(typeface);
+    }
+
+    /**
+     * Sets right auxiliary key text typeface
+     */
+    public void setRightAuxButtonTextColor(Typeface typeface) {
         rightAuxBtn.setTypeface(typeface);
     }
 
@@ -191,11 +253,23 @@ public class NumberKeyboard extends GridLayout {
             // Get number key background
             numberKeyBackground = array.getResourceId(R.styleable.NumberKeyboard_numberKeyBackground,
                     R.drawable.key_bg);
+            leftAuxBtnBackground = array.getResourceId(R.styleable.NumberKeyboard_leftAuxBtnBackground,
+                    R.drawable.key_bg);
+            rightAuxBtnBackground = array.getResourceId(R.styleable.NumberKeyboard_rightAuxBtnBackground,
+                    R.drawable.key_bg);
             // Get number key text size
             numberKeyTextSize = array.getDimensionPixelSize(R.styleable.NumberKeyboard_numberKeyTextSize,
                     spToPx(DEFAULT_KEY_TEXT_SIZE_SP));
+            leftAuxBtnTextSize = array.getDimensionPixelSize(R.styleable.NumberKeyboard_leftAuxBtnTextSize,
+                    spToPx(DEFAULT_KEY_TEXT_SIZE_SP));
+            rightAuxBtnTextSize = array.getDimensionPixelSize(R.styleable.NumberKeyboard_rightAuxBtnTextSize,
+                    spToPx(DEFAULT_KEY_TEXT_SIZE_SP));
             // Get number key text color
             numberKeyTextColor = array.getResourceId(R.styleable.NumberKeyboard_numberKeyTextColor,
+                    R.drawable.key_text_color);
+            leftAuxBtnTextColor = array.getResourceId(R.styleable.NumberKeyboard_leftAuxBtnTextColor,
+                    R.drawable.key_text_color);
+            rightAuxBtnTextColor = array.getResourceId(R.styleable.NumberKeyboard_rightAuxBtnTextColor,
                     R.drawable.key_text_color);
         } finally {
             array.recycle();
@@ -235,8 +309,14 @@ public class NumberKeyboard extends GridLayout {
         setKeyWidth(keyWidth);
         setKeyHeight(keyHeight);
         setNumberKeyBackground(numberKeyBackground);
+        setLeftAuxButtonBackground(leftAuxBtnBackground);
+        setRightAuxButtonBackground(rightAuxBtnBackground);
         setNumberKeyTextSize(numberKeyTextSize);
+        setLeftAuxButtonTextSize(leftAuxBtnTextSize);
+        setRightAuxButtonTextSize(rightAuxBtnTextSize);
         setNumberKeyTextColor(numberKeyTextColor);
+        setLeftAuxButtonTextColor(leftAuxBtnTextColor);
+        setRightAuxButtonTextColor(rightAuxBtnTextColor);
     }
 
     /**

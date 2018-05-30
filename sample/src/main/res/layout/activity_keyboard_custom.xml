@@ -29,8 +29,7 @@
         keyboard:keyHeight="70dp"
         keyboard:numberKeyTextSize="30sp"
         keyboard:numberKeyTextColor="@drawable/key_text_blue"
-        keyboard:leftAuxBtnIcon="@drawable/ic_fingerprint"
         keyboard:leftAuxBtnBackground="@drawable/key_bg_square"
-        keyboard:rightAuxBtnIcon="@drawable/ic_backspace" />
+        keyboard:leftAuxBtnBackground="@drawable/key_bg_square" />
 
 </LinearLayout>
