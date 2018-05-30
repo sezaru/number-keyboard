@@ -157,8 +157,7 @@
         <ImageView
             android:id="@+id/leftAuxBtn"
             style="@style/key"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_fingerprint"/>
+            android:text="@string/comma"/>
 
     </FrameLayout>
 
@@ -172,8 +171,7 @@
         <ImageView
             android:id="@+id/rightAuxBtn"
             style="@style/key"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_fingerprint"/>
+            android:text="@string/del"/>
 
     </FrameLayout>
 
