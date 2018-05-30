@@ -154,7 +154,7 @@
         grid:layout_row="3"
         grid:layout_rowWeight="1">
 
-        <ImageView
+        <TextView
             android:id="@+id/leftAuxBtn"
             style="@style/key"
             android:text="@string/comma"/>
@@ -168,7 +168,7 @@
         grid:layout_row="3"
         grid:layout_rowWeight="1">
 
-        <ImageView
+        <TextView
             android:id="@+id/rightAuxBtn"
             style="@style/key"
             android:text="@string/del"/>
