@@ -45,18 +45,10 @@ public class NumberKeyboard extends GridLayout {
     private int numberKeyTextSize;
     @ColorRes
     private int numberKeyTextColor;
-    @DrawableRes
-    private int leftAuxBtnIcon;
-    @DrawableRes
-    private int leftAuxBtnBackground;
-    @DrawableRes
-    private int rightAuxBtnIcon;
-    @DrawableRes
-    private int rightAuxBtnBackground;
 
     private List<TextView> numericKeys;
-    private ImageView leftAuxBtn;
-    private ImageView rightAuxBtn;
+    private TextView leftAuxBtn;
+    private TextView rightAuxBtn;
 
     private NumberKeyboardListener listener;
 
@@ -143,6 +135,8 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setBackground(ContextCompat.getDrawable(getContext(), background));
         }
+        leftAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), background));
+        rightAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), background));
     }
 
     /**
@@ -152,6 +146,8 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }
+        leftAuxBtn.setTextSize(TypeValue.COMPLEX_UNIT_PX, size);
+        rightAuxBtn.setTextSize(TypeValue.COMPLEX_UNIT_PX, size);
     }
 
     /**
@@ -161,6 +157,8 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTextColor(ContextCompat.getColorStateList(getContext(), color));
         }
+        leftAuxBtn.setTextColor(ContextCompat.getColorStateList(getContext(), color));
+        rightAuxBtn.setTextColor(ContextCompat.getColorStateList(getContext(), color));
     }
 
     /**
@@ -170,34 +168,8 @@ public class NumberKeyboard extends GridLayout {
         for (TextView key : numericKeys) {
             key.setTypeface(typeface);
         }
-    }
-
-    /**
-     * Sets left auxiliary button icon.
-     */
-    public void setLeftAuxButtonIcon(@DrawableRes int icon) {
-        leftAuxBtn.setImageResource(icon);
-    }
-
-    /**
-     * Sets right auxiliary button icon.
-     */
-    public void setRightAuxButtonIcon(@DrawableRes int icon) {
-        rightAuxBtn.setImageResource(icon);
-    }
-
-    /**
-     * Sets left auxiliary button background.
-     */
-    public void setLeftAuxButtonBackground(@DrawableRes int bg) {
-        leftAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), bg));
-    }
-
-    /**
-     * Sets right auxiliary button background.
-     */
-    public void setRightAuxButtonBackground(@DrawableRes int bg) {
-        rightAuxBtn.setBackground(ContextCompat.getDrawable(getContext(), bg));
+        leftAuxBtn.setTypeface(typeface);
+        rightAuxBtn.setTypeface(typeface);
     }
 
     /**
@@ -226,42 +198,6 @@ public class NumberKeyboard extends GridLayout {
             // Get number key text color
             numberKeyTextColor = array.getResourceId(R.styleable.NumberKeyboard_numberKeyTextColor,
                     R.drawable.key_text_color);
-            // Get auxiliary icons
-            switch (type) {
-                case 0: // integer
-                    leftAuxBtnIcon = R.drawable.key_bg_transparent;
-                    rightAuxBtnIcon = R.drawable.ic_backspace;
-                    leftAuxBtnBackground = R.drawable.key_bg_transparent;
-                    rightAuxBtnBackground = R.drawable.key_bg_transparent;
-                    break;
-                case 1: // decimal
-                    leftAuxBtnIcon = R.drawable.ic_comma;
-                    rightAuxBtnIcon = R.drawable.ic_backspace;
-                    leftAuxBtnBackground = R.drawable.key_bg;
-                    rightAuxBtnBackground = R.drawable.key_bg_transparent;
-                    break;
-                case 2: // fingerprint
-                    leftAuxBtnIcon = R.drawable.ic_fingerprint;
-                    rightAuxBtnIcon = R.drawable.ic_backspace;
-                    leftAuxBtnBackground = R.drawable.key_bg_transparent;
-                    rightAuxBtnBackground = R.drawable.key_bg_transparent;
-                    break;
-                case 3: // custom
-                    leftAuxBtnIcon = array.getResourceId(R.styleable.NumberKeyboard_leftAuxBtnIcon,
-                            R.drawable.key_bg_transparent);
-                    rightAuxBtnIcon = array.getResourceId(R.styleable.NumberKeyboard_rightAuxBtnIcon,
-                            R.drawable.key_bg_transparent);
-                    leftAuxBtnBackground = array.getResourceId(R.styleable.NumberKeyboard_leftAuxBtnBackground,
-                            R.drawable.key_bg_transparent);
-                    rightAuxBtnBackground = array.getResourceId(R.styleable.NumberKeyboard_rightAuxBtnBackground,
-                            R.drawable.key_bg_transparent);
-                    break;
-                default:
-                    leftAuxBtnIcon = R.drawable.key_bg_transparent;
-                    rightAuxBtnIcon = R.drawable.key_bg_transparent;
-                    leftAuxBtnBackground = R.drawable.key_bg;
-                    rightAuxBtnBackground = R.drawable.key_bg;
-            }
         } finally {
             array.recycle();
         }
@@ -285,8 +221,8 @@ public class NumberKeyboard extends GridLayout {
         numericKeys.add((TextView) view.findViewById(R.id.key8));
         numericKeys.add((TextView) view.findViewById(R.id.key9));
         // Get auxiliary keys
-        leftAuxBtn = view.findViewById(R.id.leftAuxBtn);
-        rightAuxBtn = view.findViewById(R.id.rightAuxBtn);
+        leftAuxBtn = (TextView) view.findViewById(R.id.leftAuxBtn);
+        rightAuxBtn = (TextView) view.findViewById(R.id.rightAuxBtn);
         // Set styles
         setStyles();
         // Set listeners
@@ -302,10 +238,6 @@ public class NumberKeyboard extends GridLayout {
         setNumberKeyBackground(numberKeyBackground);
         setNumberKeyTextSize(numberKeyTextSize);
         setNumberKeyTextColor(numberKeyTextColor);
-        setLeftAuxButtonIcon(leftAuxBtnIcon);
-        setLeftAuxButtonBackground(leftAuxBtnBackground);
-        setRightAuxButtonIcon(rightAuxBtnIcon);
-        setRightAuxButtonBackground(rightAuxBtnBackground);
     }
 
     /**
